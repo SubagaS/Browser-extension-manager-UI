@@ -2,29 +2,44 @@ import React, { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 
 function Card() {
-  const [data, setData] = useState([]);
+  const [allItems, setAllItems] = useState([]);
   const [filterItems, setFilterItems] = useState([]);
 
   useEffect(() => {
     fetch('../../../data.json')
       .then((res) => res.json())
       .then((data) => {
-        setData(data);
+        setAllItems(data);
         setFilterItems(data);
       })
       .catch((err) => console.error('Error loading JSON:', err));
   }, []);
 
   function displayAll() {
-    setFilterItems(data);
+    setFilterItems(allItems);
   }
   function displayActive() {
-    const activeItems = data.filter((item) => item.isActive);
+    const activeItems = allItems.filter((item) => item.isActive);
     setFilterItems(activeItems);
   }
   function displayInActive() {
-    const inActiveItems = data.filter((item) => !item.isActive);
+    const inActiveItems = allItems.filter((item) => !item.isActive);
     setFilterItems(inActiveItems);
+  }
+
+  function handleToggle(index) {
+    const updatedItems = allItems.map((item, i) =>
+      i == index ? { ...item, isActive: !item.isActive } : item
+    );
+    setAllItems(updatedItems);
+    setFilterItems(updatedItems);
+  }
+
+  function removeCard(index) {
+    const updatedCards = allItems.filter((_, i) => i !== index);
+    setAllItems(updatedCards);
+    setFilterItems(updatedCards);
+    console.log(updatedCards);
   }
 
   return (
@@ -36,7 +51,7 @@ function Card() {
       </div>
 
       <div className={styles.mainCardContainer}>
-        {filterItems.map((item, _) => (
+        {filterItems.map((item, index) => (
           <div className={styles.cardContainer}>
             <div className={styles.infoContainer}>
               <img src={item.logo} alt="logo" />
@@ -47,13 +62,13 @@ function Card() {
               </div>
             </div>
             <div className={styles.buttonContainer}>
-              <button>Remove</button>
+              <button onClick={() => removeCard(index)}>Remove</button>
               <div className={styles.toggleContainer}>
                 <label className={styles.switch} key={item.name}>
                   <input
                     type="checkbox"
-                    name="toggle"
                     defaultChecked={item.isActive}
+                    onChange={() => handleToggle(index)}
                   />
                   <span className={styles.slider}></span>
                 </label>

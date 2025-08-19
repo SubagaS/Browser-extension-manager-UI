@@ -79,6 +79,9 @@
     border: 1px solid var(--neutral-300);
     border-radius: 62.4rem;
   }
+  button:hover {
+    cursor: pointer;
+  }
 }
 
 .toggleContainer {
