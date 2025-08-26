@@ -1,0 +1,15 @@
+.hidden {
+  display: none;
+}
+.moonIcon {
+  background-color: var(--themebtn-color);
+}
+.sunIcon {
+  background-color: var(--themebtn-color);
+}
+.moonIcon:hover {
+  cursor: pointer;
+}
+.sunIcon:hover {
+  cursor: pointer;
+}

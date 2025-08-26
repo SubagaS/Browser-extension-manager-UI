@@ -1,0 +1,161 @@
+.filterContainer {
+  display: flex;
+  width: 18.43rem;
+  height: 2.875rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+
+  button {
+    font-size: 1.25rem;
+    line-height: 140%;
+    background-color: var(--filterbtn);
+    color: var(--filterbtn-text);
+    width: 35%;
+    height: 100%;
+    border-radius: 62.4rem;
+    border: none;
+  }
+
+  button:first-child {
+    width: 20%;
+  }
+
+  button:hover {
+    cursor: pointer;
+    background-color: var(--red-700);
+    color: var(--neutral-0);
+  }
+}
+
+.mainCardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.cardContainer {
+  width: 100%;
+  max-height: 12.5rem;
+  background-color: var(--card-bg);
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  box-shadow: 2px 5px 5px hsla(226, 11%, 37%, 0.15);
+}
+
+.infoContainer {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  img {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+
+  p:first-child {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 120%;
+    color: var(--info-p-title);
+  }
+  p:last-child {
+    font-size: 1rem;
+    line-height: 140%;
+    color: var(--info-p);
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button:first-child {
+    width: 5.6rem;
+    height: 2.375rem;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 140%;
+    background-color: var(--removebtn);
+    color: var(--removebtn-text);
+    border: 1px solid var(--neutral-300);
+    border-radius: 62.4rem;
+  }
+  button:hover {
+    cursor: pointer;
+    background-color: var(--red-700);
+    border: 1px solid var(--red-700);
+  }
+}
+
+.toggleContainer {
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 2.25rem;
+    height: 1.25rem;
+  }
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    inset: 0;
+    background-color: var(--neutral-300);
+    border-radius: 2.25rem;
+  }
+  .slider::before {
+    position: absolute;
+    content: '';
+    width: 1rem;
+    height: 1rem;
+    left: 0.125rem;
+    bottom: 0.125rem;
+    background-color: var(--neutral-0);
+    transition: 0.4s;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  input:checked + .slider {
+    background-color: var(--red-700);
+  }
+  input:checked + .slider::before {
+    transform: translateX(1rem);
+  }
+}
+
+@media only screen and (min-width: 38rem) {
+  .mainCardContainer {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .cardContainer {
+    max-width: 21.625rem;
+    height: 12.5rem;
+  }
+}
+
+@media only screen and (min-width: 71.8rem) {
+  .mainCardContainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+  .cardContainer {
+    max-width: 23.875rem;
+    height: 12.5rem;
+  }
+  .infoContainer {
+    margin-bottom: 2.875rem;
+  }
+  .filter {
+    width: 73.125rem;
+    height: 2.875rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+  }
+}
