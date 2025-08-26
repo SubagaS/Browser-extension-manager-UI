@@ -44,10 +44,13 @@ function Card() {
 
   return (
     <>
-      <div className={styles.filterContainer}>
-        <button onClick={displayAll}>All</button>
-        <button onClick={displayActive}>Active</button>
-        <button onClick={displayInActive}>Inactive</button>
+      <div className={styles.filter}>
+        <h2>Extension List</h2>
+        <div className={styles.filterContainer}>
+          <button onClick={displayAll}>All</button>
+          <button onClick={displayActive}>Active</button>
+          <button onClick={displayInActive}>Inactive</button>
+        </div>
       </div>
 
       <div className={styles.mainCardContainer}>

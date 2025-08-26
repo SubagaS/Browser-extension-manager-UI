@@ -6,7 +6,6 @@ function App() {
     <>
       <Header />
       <main className="mainContainer">
-        <h2>Extension List</h2>
         <Card />
       </main>
     </>

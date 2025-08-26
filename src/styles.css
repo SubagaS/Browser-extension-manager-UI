@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
+@import '/src/Components/Header/styles.module.css';
+@import '/src/Components/Card/styles.module.css';
+
 *,
 ::after,
 ::before {
@@ -13,14 +16,6 @@ body {
   min-height: 100vh;
   font-family: 'Noto Sans';
   font-size: 16px;
-}
-
-body {
-  padding: 1.25rem 1rem 4rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-image: var(--light-gradient);
 }
 
 :root {
@@ -38,6 +33,43 @@ body {
   --light-gradient: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
   --dark-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
 }
+
+body {
+  padding: 1.25rem 1rem 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: var(--bg-image);
+}
+body.light {
+  --bg-image: var(--light-gradient);
+  --header-bg: var(--neutral-0);
+  --h2-color: var(--neutral-900);
+  --themebtn-color: var(--neutral-100);
+  --filterbtn: var(--neutral-0);
+  --filterbtn-text: var(--neutral-900);
+  --card-bg: var(--neutral-0);
+  --info-p-title: var(--neutral-900);
+  --info-p: var(--neutral-600);
+  --removebtn: var(--neutral-0);
+  --removebtn-text: var(--neutral-900);
+
+}
+body.dark {
+  --bg-image: var(--dark-gradient);
+  --header-bg: var(--neutral-800);
+  --h2-color: var(--neutral-0);
+  --themebtn-color: var(--neutral-700);
+  --filterbtn: var(--neutral-700);
+  --filterbtn-text: var(--neutral-0);
+  --card-bg: var(--neutral-800);
+  --info-p-title: var(--neutral-0);
+  --info-p: var(--neutral-300);
+  --removebtn: var(--neutral-800);
+  --removebtn-text: var(--neutral-0);
+
+}
+
 header {
   width: 100%;
 }
@@ -50,7 +82,7 @@ header {
   h2 {
     font-size: 2.125rem;
     font-weight: 800;
-    color: var(--neutral-900);
+    color: var(--h2-color);
     margin-bottom: 1.5rem;
   }
 }
