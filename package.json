@@ -19,7 +19,6 @@
   "bugs": {
     "url": "https://github.com/SubagaS/Browser-extension-manager-UI/issues"
   },
-  "homepage": "https://subagas.github.io/Frontend-mentor/Junior/Browser-extension-manager-UI/",
   "dependencies": {
     "@vitejs/plugin-react": "^5.0.0",
     "react": "^19.1.1",
