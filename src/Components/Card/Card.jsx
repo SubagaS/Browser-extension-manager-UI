@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles.module.css';
+import data from '../../data.json';
 
 function Card() {
   const [allItems, setAllItems] = useState([]);
   const [filterItems, setFilterItems] = useState([]);
 
   useEffect(() => {
-    fetch('../../../data.json')
-      .then((res) => res.json())
-      .then((data) => {
-        setAllItems(data);
-        setFilterItems(data);
-      })
-      .catch((err) => console.error('Error loading JSON:', err));
+    setAllItems(data);
+    setFilterItems(data);
   }, []);
 
   function displayAll() {
@@ -55,7 +51,7 @@ function Card() {
 
       <div className={styles.mainCardContainer}>
         {filterItems.map((item, index) => (
-          <div className={styles.cardContainer}>
+          <div className={styles.cardContainer} key={item.name}>
             <div className={styles.infoContainer}>
               <img src={item.logo} alt="logo" />
 
